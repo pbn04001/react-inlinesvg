@@ -1,6 +1,6 @@
 {
   "name": "react-inlinesvg-2",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "An SVG loader for React",
   "author": "Gil Barbara <gilbarbara@gmail.com>",
   "contributors": [
@@ -11,12 +11,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/gilbarbara/react-inlinesvg.git"
+    "url": "git://github.com/pbn04001/react-inlinesvg.git"
   },
   "bugs": {
-    "url": "https://github.com/gilbarbara/react-inlinesvg/issues"
+    "url": "https://github.com/pbn04001/react-inlinesvg/issues"
   },
-  "homepage": "https://github.com/gilbarbara/react-inlinesvg#readme",
+  "homepage": "https://github.com/pbn04001/react-inlinesvg#readme",
   "main": "lib/index.js",
   "files": [
     "lib",

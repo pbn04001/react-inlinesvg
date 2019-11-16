@@ -11,7 +11,7 @@ export interface IProps {
   className?: string;
   description?: string;
   loader?: React.ReactNode;
-  innerRef?: React.Ref<HTMLElement>;
+  innerRef?: React.Ref<SVGSVGElement>;
   onError?: (error: InlineSVGError | IFetchError) => void;
   onLoad?: (src: string, isCached: boolean) => void;
   preProcessor?: (code: string) => string;
@@ -27,6 +27,7 @@ export interface IState {
   element: React.ReactNode;
   hasCache: boolean;
   status: string;
+  svg?: SVGSVGElement;
 }
 
 export interface IFetchError extends Error {
@@ -53,7 +54,7 @@ export const STATUS = {
 
 const cacheStore: { [key: string]: IStorageItem } = Object.create(null);
 
-export default class InlineSVG extends React.PureComponent<IProps, IState> {
+export class InlineSVG extends React.PureComponent<IProps, IState> {
   public static defaultProps = {
     cacheRequests: true,
     uniquifyIDs: false,
@@ -204,6 +205,9 @@ export default class InlineSVG extends React.PureComponent<IProps, IState> {
       if (className) {
         svg.classList.add(className)
       }
+      this.setState({
+        svg
+      })
 
       if (description) {
         const originalDesc = svg.querySelector('desc');
@@ -420,3 +424,7 @@ export default class InlineSVG extends React.PureComponent<IProps, IState> {
     return loader;
   }
 }
+
+export default React.forwardRef<SVGSVGElement, IProps>((props, ref) => (
+  <InlineSVG {...props} innerRef={ref} />
+));
