@@ -8,6 +8,7 @@ export interface IProps {
   baseURL?: string;
   cacheRequests?: boolean;
   children?: React.ReactNode;
+  className?: string;
   description?: string;
   loader?: React.ReactNode;
   innerRef?: React.Ref<HTMLElement>;
@@ -189,7 +190,7 @@ export default class InlineSVG extends React.PureComponent<IProps, IState> {
   }
 
   private getNode() {
-    const { description, title } = this.props;
+    const { description, title, className } = this.props;
 
     try {
       const svgText = this.processSVG();
@@ -200,6 +201,9 @@ export default class InlineSVG extends React.PureComponent<IProps, IState> {
       }
 
       const svg = this.updateSVGAttributes(node);
+      if (className) {
+        svg.classList.add(className)
+      }
 
       if (description) {
         const originalDesc = svg.querySelector('desc');
