@@ -27,7 +27,6 @@ export interface IState {
   element: React.ReactNode;
   hasCache: boolean;
   status: string;
-  svg?: SVGSVGElement;
 }
 
 export interface IFetchError extends Error {
@@ -205,9 +204,6 @@ export class InlineSVG extends React.PureComponent<IProps, IState> {
       if (className) {
         svg.classList.add(className)
       }
-      this.setState({
-        svg
-      })
 
       if (description) {
         const originalDesc = svg.querySelector('desc');

@@ -3,7 +3,7 @@ import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { default as fetchMock } from 'fetch-mock';
 
-import ReactInlineSVG from '../src/index';
+import { InlineSVG as ReactInlineSVG } from '../src/index';
 import { InlineSVGError } from '../src/helpers';
 
 interface IProps {

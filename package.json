@@ -110,7 +110,7 @@
   "husky": {
     "hooks": {
       "post-merge": "repo-tools istall-packages",
-      "pre-commit": "repo-tools check-remote && npm run validate"
+      "pre-commit": "repo-tools check-remote"
     }
   }
 }
